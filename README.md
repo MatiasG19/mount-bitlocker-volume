@@ -1,12 +1,16 @@
 # mount-bitlocker-volume
- Bash script to decrypt and mount a bitlocker encrypted volume using dislocker.
+ Bash script to decrypt and mount a Bitlocker encrypted volume using Dislocker.
 
- ## Install dependency
+ ## Setup script
+ Run `./setup` in the source folder.
+
+## Manual setup
+
+ ### Install dependencies
  `sudo apt install dislocker`
 
-## Command line access
-
-Copy `mbv` to `/bin/` to use directly from command line.
+### Command line access
+Copy `mbv` to `/bin/` for direct command line use.
 
 ## Usage
 

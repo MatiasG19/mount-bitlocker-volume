@@ -21,7 +21,7 @@ sudo mkdir -p $BITLOCKER_PATH
 sudo mkdir $VOLUME_PATH 
 
 # Read volumes
-sudo fdisk -l
+sudo fdisk -l | grep --color="never" Device -A 19
 read -p "Choose directory /dev/: " dir
 
 # Unlock and mount
