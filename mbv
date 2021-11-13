@@ -3,6 +3,9 @@
 # Define constants
 MOUNT="m"
 UNMOUNT="u"
+MOUNTING_PATH="/media/$USER/mbv"
+BITLOCKER_PATH="$MOUNTING_PATH/bitlocker"
+VOLUME_PATH="$MOUNTING_PATH/volume"
 
 # Mount or unmount
 while read -p "Mount or unmount (m/u)? " mountOption
@@ -13,9 +16,9 @@ if [ $mountOption == $MOUNT ]
 then
 # Create directory
 echo "Creating directories..."
-cd ~
-sudo mkdir -p ./media/bitlocker
-sudo mkdir ./media/mount
+cd /
+sudo mkdir -p $BITLOCKER_PATH
+sudo mkdir $VOLUME_PATH 
 
 # Read volumes
 sudo fdisk -l
@@ -23,9 +26,9 @@ read -p "Choose directory /dev/: " dir
 
 # Unlock and mount
 echo "Unlocking..."
-sudo dislocker /dev/$dir -u ./media/bitlocker &&
+sudo dislocker /dev/$dir -u $BITLOCKER_PATH &&
 echo "Mounting..." &&
-sudo mount ./media/bitlocker/dislocker-file ./media/mount &&
+sudo mount $BITLOCKER_PATH/dislocker-file $VOLUME_PATH &&
 echo "Volume mounted!"
 break
 
@@ -34,8 +37,10 @@ elif [ $mountOption == $UNMOUNT ]
 then
 cd ~
 echo "Unmounting volume..."
-sudo umount ./media/mount &&
-sudo umount ./media/bitlocker &&
+sudo umount $VOLUME_PATH &&
+sleep 0.5 &&
+sudo umount $BITLOCKER_PATH &&
+sleep 0.5 &&
 echo "Volume unmounted!"
 break
 fi

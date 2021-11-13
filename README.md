@@ -6,7 +6,7 @@
 
 ## Command line access
 
-Copy `mbv.bash` to `/bin/` to use directly from command line.
+Copy `mbv` to `/bin/` to use directly from command line.
 
 ## Usage
 
