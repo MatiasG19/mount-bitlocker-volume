@@ -1,6 +1,6 @@
 #!/bin/bash
 echo Copying mbv to /bin...
-sudo cp ./mbv /bin
+sudo cp -i ./mbv /bin
 echo Installing dislocker...
 sudo apt install dislocker
 
